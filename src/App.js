@@ -1,9 +1,9 @@
+import React, { useState } from 'react';
 import NewExpense from './NewExpenses/NewExpenses';
 import Expenses from './components/Expenses/Expenses';
 
-
-const App = () =>{
-  const expenses = [
+const App = () => {
+  const [expenses, setExpenses] = useState([
     {
       id: 101,
       title: "mirror",
@@ -32,15 +32,21 @@ const App = () =>{
       date: new Date(2023, 2, 17),
       locationofexpenditure: "fuel",
     },
-  ];
+  ]);
+
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [...prevExpenses, expense];
+    });
+  };
 
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <p>iam vikas</p>
       <Expenses expenses={expenses} />
     </div>
   );
-}
+};
 
 export default App;
