@@ -1,39 +1,44 @@
 import React,{useState} from 'react'
 import './ExpenseForm.css'
 const ExpenseForm = () =>{
-    //const[eneterdTitle,seteneteredTitle] = useState('')
-    //const[eneterdAmount,seteneteredAmount] = useState('')
-    //const[eneterdDate,seteneteredDate] = useState('')
-    const [userInput,setuserInput] = useState({
-        enterdTitle:'',
-        enterdAmount:'',
-        enterdDate:''
-    })
+    const[enterdTitle,seteneteredTitle] = useState('')
+    const[enterdAmount,seteneteredAmount] = useState('')
+    const[enterdDate,seteneteredDate] = useState('')
+    //const [userInput,setuserInput] = useState({
+      //  enterdTitle:'',
+        //enterdAmount:'',
+        //enterdDate:''
+    //})
     
     const titleChangeHandler = (event)=>{
-        //seteneteredTitle(event.target.value)
-        setuserInput({
-            ...userInput,
-            enterdTitle:event.target.value,
-        })
+        seteneteredTitle(event.target.value)
+        //setuserInput({
+          //  ...userInput,
+            //enterdTitle:event.target.value,
+        //})
     }
     const amountChangeHandler = (event)=>{
-        //seteneteredAmount(event.target.value)
-        setuserInput({
-            ...userInput,
-            enterdAmount:event.target.value,
-        })
+        seteneteredAmount(event.target.value)
+        //setuserInput({
+          //  ...userInput,
+            //enterdAmount:event.target.value,
+        //})
     }
     const dateChangeHandler = (event)=>{
-        //seteneteredDate(event.target.value)
-        setuserInput({
-            ...userInput,
-            enterdDate:event.target.value,
-        })
+        seteneteredDate(event.target.value)
+        //setuserInput({
+          //  ...userInput,
+            //enterdDate:event.target.value,
+        //})
     }
     const submitHandler = (event)=>{
         event.preventDefault()
-        console.log(userInput)
+        const expensedata = {
+            title:enterdTitle,
+            amount:enterdAmount,
+            date:new Date(enterdDate)
+        }
+        console.log(expensedata)
     }
     return (
         <form onSubmit={submitHandler}>
