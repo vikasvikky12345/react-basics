@@ -1,21 +1,42 @@
 import React,{useState} from 'react'
 import './ExpenseForm.css'
 const ExpenseForm = () =>{
-    const[eneterdTitle,seteneteredTitle] = useState('')
-    const[eneterdAmount,seteneteredAmount] = useState('')
-    const[eneterdDate,seteneteredDate] = useState('')
+    //const[eneterdTitle,seteneteredTitle] = useState('')
+    //const[eneterdAmount,seteneteredAmount] = useState('')
+    //const[eneterdDate,seteneteredDate] = useState('')
+    const [userInput,setuserInput] = useState({
+        enterdTitle:'',
+        enterdAmount:'',
+        enterdDate:''
+    })
     
     const titleChangeHandler = (event)=>{
-        seteneteredTitle(event.target.value)
+        //seteneteredTitle(event.target.value)
+        setuserInput({
+            ...userInput,
+            enterdTitle:event.target.value,
+        })
     }
     const amountChangeHandler = (event)=>{
-        seteneteredAmount(event.target.value)
+        //seteneteredAmount(event.target.value)
+        setuserInput({
+            ...userInput,
+            enterdAmount:event.target.value,
+        })
     }
     const dateChangeHandler = (event)=>{
-        seteneteredDate(event.target.value)
+        //seteneteredDate(event.target.value)
+        setuserInput({
+            ...userInput,
+            enterdDate:event.target.value,
+        })
+    }
+    const submitHandler = (event)=>{
+        event.preventDefault()
+        console.log(userInput)
     }
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Expese Title:</label>
