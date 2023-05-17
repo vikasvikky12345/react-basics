@@ -14,17 +14,15 @@ const ExpenseItem = (prop) => {
     const changeExpense = () => {
         setExpense('$100')
     }
-
-
-
-    
     return (
-        <Card className="expense-item" id={prop.id}>
-            <ExpenseDate date={prop.date} />    
-            <ExpenseDetails amount={expense}  expenditure={prop.expenditure}   title={title} />
-            <button onClick={clickHandler}>Change title</button>
-            <button onClick={changeExpense}>change expense</button>
-        </Card>
+        <li>
+            <Card className="expense-item" id={prop.id}>
+                <ExpenseDate date={prop.date} />    
+                <ExpenseDetails amount={expense}  expenditure={prop.expenditure}   title={title} />
+                <button onClick={clickHandler}>Change title</button>
+                <button onClick={changeExpense}>change expense</button>
+            </Card>
+        </li>
     )
 }
 export default ExpenseItem;
